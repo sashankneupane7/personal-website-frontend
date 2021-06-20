@@ -1,0 +1,52 @@
+const ProjectData = [
+    {
+    id: 'meditation',
+    dark: false,
+    topline: 'Meditation App',
+    headline: 'App that helps you meditate',
+    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni odio maiores iusto! Ut porro doloribus illum fugiat dolores rerum magni sit molestiae vero provident perspiciatis qui enim nihil id repudiandae commodi ea sed beatae error eos, quasi non quo accusantium! Ullam laudantium reprehenderit neque fugiat debitis aspernatur quibusdam harum nisi.",
+    buttonLabel: 'Let\'s Meditate',
+    imgStart: false,
+    imgsrc: require('../../../content/svg/svg-1.svg').default,
+    alt: 'Car',
+    primary: true,
+  },
+  {
+    1: 'GeoQuiz',
+    dark: true,
+    topline: 'Geoquiz App',
+    headline: 'App that helps you improve geography knowledge',
+    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni odio maiores iusto! Ut porro doloribus illum fugiat dolores rerum magni sit molestiae vero provident perspiciatis qui enim nihil id repudiandae commodi ea sed beatae error eos, quasi non quo accusantium! Ullam laudantium reprehenderit neque fugiat debitis aspernatur quibusdam harum nisi.",
+    buttonLabel: 'Do Geoquiz',
+    imgStart: true,
+    imgsrc: require("../../../content/svg/svg-2.svg").default,
+    alt: 'Geo',
+    primary: true,
+  },
+  {
+    id: 'Chess',
+    dark: false,
+    topline: 'Chess',
+    headline: 'Play chess with me',
+    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni odio maiores iusto! Ut porro doloribus illum fugiat dolores rerum magni sit molestiae vero provident perspiciatis qui enim nihil id repudiandae commodi ea sed beatae error eos, quasi non quo accusantium! Ullam laudantium reprehenderit neque fugiat debitis aspernatur quibusdam harum nisi.",
+    buttonLabel: 'Play Chess',
+    imgStart: false,
+    imgsrc: require("../../../content/svg/svg-2.svg").default,
+    alt: 'Geo',
+    primary: true,
+  },
+  {
+    id: 'Sudoku',
+    dark: true,
+    topline: 'Sudoku',
+    headline: 'Play Sudoku with me.',
+    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni odio maiores iusto! Ut porro doloribus illum fugiat dolores rerum magni sit molestiae vero provident perspiciatis qui enim nihil id repudiandae commodi ea sed beatae error eos, quasi non quo accusantium! Ullam laudantium reprehenderit neque fugiat debitis aspernatur quibusdam harum nisi.",
+    buttonLabel: 'Play Sudoku',
+    imgStart: true,
+    imgsrc: require("../../../content/svg/svg-3.svg").default,
+    alt: 'Play Sudoku',
+    primary: true,
+  }
+]
+
+export default ProjectData;

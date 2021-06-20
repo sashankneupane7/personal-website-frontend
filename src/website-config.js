@@ -1,4 +1,4 @@
-export const config = {
+const config = {
   title: 'Sashank Neupane',
   description: 'A personal portfolio.',
   mainDescription:
@@ -9,7 +9,7 @@ export const config = {
   lang: 'en',
   themeColor: '#26A6ED',
   siteUrl: 'https://sashankneupane.com.np',
-  blogTitle: 'Sashank Writes',
+  blogTitle: 'SN Blog',
   facebook: 'https://github.com/sashankneupane',
   twitter: 'https://twitter.com/sashankneupane1',
   instagram: 'https://www.instagram.com/neupanesashank',
@@ -22,3 +22,5 @@ export const config = {
   googleSiteVerification: '',
   footer: 'Sashank Neupane',
 };
+
+export default config;
