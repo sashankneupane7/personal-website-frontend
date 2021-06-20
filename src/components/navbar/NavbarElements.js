@@ -4,14 +4,13 @@ import { Link as LinkS } from 'react-scroll';
 
 export const Nav = styled.nav`
   background: black;
-  height: 80px;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px white solid;
 
   @media screen and (max-width: 960) {
     transition:0.8s all ease;
@@ -27,7 +26,7 @@ export const Nav = styled.nav`
 export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 70px;
   z-index: 1;
   width: 100%;
   padding: 0 20px;
@@ -82,13 +81,14 @@ export const NavItem = styled.li`
   padding: 10px 10px;
 `
 
-export const NavLinks = styled(LinkS)`
+export const NavLinks = styled(LinkR)`
   display: flex;
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
+  color: white;
 
   &.active {
     border-bottom: 2px solid white;

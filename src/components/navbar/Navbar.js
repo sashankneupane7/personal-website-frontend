@@ -13,16 +13,16 @@ const Navbar = (props) => {
             </MobileIcon>
             <NavMenu>
               <NavItem>
-                <NavLinks to="blog">Blog</NavLinks>
+                <NavLinks to="/blog">Blog</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="projects">Projects</NavLinks>
+                <NavLinks to="/projects">Projects</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="about">About</NavLinks>
+                <NavLinks to="/about">About</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="contact">Contact</NavLinks>
+                <NavLinks to="/contact">Contact</NavLinks>
               </NavItem>
             </NavMenu>
             <NavBtn>

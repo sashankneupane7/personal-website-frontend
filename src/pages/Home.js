@@ -9,8 +9,8 @@ import { Facebook, Github, Instagram, Twitter } from '../components/icons/Social
 const HomeOuter = styled.div`
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: calc(100vh - 80px);
+  max-width: 100vw;
+  height: calc(100vh - 70px);
   background: black;
 `
 
@@ -34,12 +34,13 @@ const HomeInner = styled.div`
 
 const HomeLeft = styled.div`
   width: 50%;
-  height: 100%;
-  padding: 50px;
+  height: 100%; 
+  align-items: center;
 
   @media screen and (max-width: 500px){
     padding: 0;
     margin: 0;
+    padding-top: 50px;
   }
 `
 
@@ -53,6 +54,7 @@ const HomeRight = styled.div`
 
   @media screen and (max-width: 500px){
     padding: 0;
+    margin: 0;
     margin-top: 30px;
   }
 `
@@ -93,7 +95,7 @@ const Description = styled.div`
   @media screen and (max-width: 500px) {
     margin: 5px 0;
     padding: 0;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 `
 
@@ -125,15 +127,8 @@ const Social = styled.li`
 `
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const toggle = () => {
-    setIsOpen(!isOpen)
-  }
-
   return (
     <>
-      <Sidebar isOpen={isOpen} toggle={toggle}/>
-      <Navbar toggle={toggle}/>
       <HomeOuter>
         <HomeInner>
           <HomeLeft>
