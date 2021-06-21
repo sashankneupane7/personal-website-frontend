@@ -1,0 +1,27 @@
+
+.writeIcon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.writeInput {
+  font-size: 30px;
+  width: 80%;
+  padding: 10px;
+  border: none;
+}
+
+.writeInput:focus {
+  outline: none;
+}
+
+.writeText {
+  font-size: 20px;
+  height: 100vh;
+  width: 100%;
+}

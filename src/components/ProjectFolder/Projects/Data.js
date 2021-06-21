@@ -12,7 +12,7 @@ const ProjectData = [
     primary: true,
   },
   {
-    1: 'GeoQuiz',
+    id: 'GeoQuiz',
     dark: true,
     topline: 'Geoquiz App',
     headline: 'App that helps you improve geography knowledge',

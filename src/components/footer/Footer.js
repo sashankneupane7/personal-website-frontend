@@ -39,10 +39,10 @@ const Footer = ()=> {
           {config.title} &copy; {new Date().getFullYear()}
         </FooterLeft>
         <FooterRight>
-          {Links.map((text, index) => {
-            if (width > 768 || text.displayMobile){
+          {Links.map((element) => {
+            if (width > 768 || element.displayMobile){
               return(
-                <FooterLinks key={index}>{text.text}</FooterLinks>
+                <FooterLinks key={element.text}>{element.text}</FooterLinks>
               )
             } else {
               return (

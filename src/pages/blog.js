@@ -1,12 +1,17 @@
-import styled from 'styled-components'
-
-const BlogContainer = styled.div`
-  min-height: calc(100vh - 60px);
-`
-
+import Header from '../components/BlogFolder/BlogPage/Header'
+import Posts from '../components/BlogFolder/BlogPage/Posts'
+import {BlogContainer} from '../components/BlogFolder/BlogPage/BlogElements'
+import SideBar from '../components/BlogFolder/BlogPage/Sidebar'
+ 
 const Blog = () => {
   return (
-    <BlogContainer>blog</BlogContainer>
+    <>
+      <Header />
+      <BlogContainer>
+        <Posts>Posts</Posts>
+        <SideBar>SideBar</SideBar>
+      </BlogContainer>
+    </>
   )
 }
 
