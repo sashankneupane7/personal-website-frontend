@@ -1,0 +1,54 @@
+import { useState } from "react";
+
+import Navbar from "./components/navbar/Navbar";
+import Sidebar from "./components/sidebar/Sidebar";
+import Footer from "./components/footer/Footer";
+
+import Home from "./pages/home";
+// import PostTemplate from './templates/PostTemplate'
+
+import Settings from "./pages/other/settings";
+import Register from "./pages/other/register";
+import Login from "./pages/other/login";
+import Write from "./pages/blog/write";
+
+import PageRenderer from "./components/PageRenderer";
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+} from "react-router-dom";
+import "./styles/global.css";
+
+function App() {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => {
+        setIsOpen(!isOpen);
+    };
+    const user = false;
+    return (
+        <Router>
+            <Sidebar isOpen={isOpen} toggle={toggle} />
+            <Navbar toggle={toggle} />
+            <Switch>
+                <Route path="/settings">
+                    { user ? <Settings /> : <Register />}
+                </Route>
+                <Route path="/register">{user ? <Home /> : <Register />}</Route>
+                <Route path="/login">{user ? <Home /> : <Login />}</Route>
+                <Route path="/:page" exact component={PageRenderer} />
+                <Route path="/" exact component={Home} />
+                {/* <Route path="/post" exact component={PostTemplate} /> */}
+                <Route path="/blog/write">
+                    {user ? <Write /> : <Register />}
+                </Route>
+                <Route component={() => 404} />
+            </Switch>
+            <Footer />
+        </Router>
+    );
+}
+
+export default App;
