@@ -12,5 +12,5 @@ textarea,
 button,
 select,
 a {
-  -webkit-tap-highlight-color: none;
+  -webkit-tap-highlight-color: transparent;
 }
