@@ -1,33 +1,54 @@
 import {OuterFooter, FooterContainer, FooterLeft, FooterRight, FooterLinks} from './FooterElements'
 import config from '../../website-config'
+import {useState, useEffect} from 'react'
 
 const Links = [{
   text: 'Latest Posts',
-  link: '/blog'
+  link: '/blog',
+  displayMobile: true,
 },
   {
     text: 'Github',
-    link: config.github
+    link: config.github,
+    displayMobile: false,
   }, {
     text: 'Twitter',
-    link: config.twitter
+    link: config.twitter,
+    displayMobile: false,
   }, {
     text: 'Contact',
-    link: '/contact'
+    link: '/contact',
+    displayMobile: true,
   }]
 
 const Footer = ()=> {
+  // To make Github and Twitter disappear on mobile view
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    function handleResize(){
+      setWidth(window.innerWidth)
+    }
+  
+  window.addEventListener('resize', handleResize)
+  })
+
   return(
     <OuterFooter>
       <FooterContainer>
         <FooterLeft>
-          {config.blogTitle} &copy; {new Date().getFullYear()} | Sashank Neupane
+          {config.title} &copy; {new Date().getFullYear()}
         </FooterLeft>
         <FooterRight>
           {Links.map((text, index) => {
-            return(
-              <FooterLinks key={index}>{text.text}</FooterLinks>
-            )
+            if (width > 768 || text.displayMobile){
+              return(
+                <FooterLinks key={index}>{text.text}</FooterLinks>
+              )
+            } else {
+              return (
+                <></>
+              )
+            }
           } )}
         </FooterRight>
       </FooterContainer>
