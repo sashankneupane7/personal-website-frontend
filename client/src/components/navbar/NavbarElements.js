@@ -108,6 +108,7 @@ export const NavLinks = styled(NavLink)`
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
+  padding-left: 20px;
 
   @media screen and (max-width: 768px){
     display: none;
@@ -119,7 +120,7 @@ export const NavBtnLink = styled(LinkR)`
   background: black;
   white-space: nowrap;
   color: white;
-  padding: 10px 20px;
+  padding: 8px 15px;
   font-size: 16px;
   border: white 1px solid;
   text-decoration: none;
@@ -136,7 +137,7 @@ export const NavBtnLink = styled(LinkR)`
 `
 
 export const PpContainer = styled.div`
-  width: 40px;
+  width: 50px;
   display: flex;
   align-items: center;
 
@@ -145,8 +146,21 @@ export const PpContainer = styled.div`
   }
 `
 export const ProfileImage = styled.img`
-  border-radius: 50%;
-  width: 100%;
-  border: 1px solid white;
-  cursor: pointer;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        width: 40px;
+        height: 40px;
+        transition: all 0.3s ease-in-out;
+    }
+`;
+
+export const NavRight = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `

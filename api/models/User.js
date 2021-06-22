@@ -3,7 +3,7 @@ const UserSchema = new mongoose.Schema(
     {
     name: {
         type: String,
-        unique: false,
+        default: "",
     },
     firstname: {
         type: String,

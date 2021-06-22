@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import {Context} from './context/Context'
 
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -27,11 +28,11 @@ function App() {
     const toggle = () => {
         setIsOpen(!isOpen);
     };
-    const user = true;
+    const {user} = useContext(Context);
     return (
         <Router>
             <Sidebar isOpen={isOpen} toggle={toggle} />
-            <Navbar user={user} toggle={toggle} />
+            <Navbar toggle={toggle} />
             <Switch>
                 <Route path="/settings">
                     { user ? <Settings /> : <Register />}

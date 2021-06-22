@@ -3,16 +3,22 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const PostContainer = styled.div`
-    width: 300px;
-    margin: 20px 25px 40px 25px;
+    width:31%;
+    max-width: 400px;
+    margin: 10px 15px;
+    padding: 20px;
+    min-height: 400px;
     border-radius: 10px;
     border: 1px solid white;
 
     @media screen and (max-width: 900px) {
-        margin: 20px auto;
-        width: 90%;
-        border: none;
+        width: 45%;
     }
+
+    @media screen and (max-width: 500px){
+        width: 90%;
+    }
+    
 `;
 
 const PostImage = styled.img`
@@ -71,9 +77,11 @@ const PostDescription = styled.p`
 `;
 
 const Post = ({ post }) => {
+    const PF = "http://localhost:4567/images/"
+
     return (
         <PostContainer>
-            {post.photo && <PostImage key={post._id} src={post.photo} alt="" />}
+            {post.photo && <PostImage key={post._id} src={PF + post.photo} alt="" />}
             <PostInfo>
                 <div className="categories">
                     {post.categories.map((c, i) => (
