@@ -5,7 +5,7 @@ import SideBar from '../components/BlogFolder/BlogPage/Sidebar'
 
 
 const PostTemplateContainer = styled.div`
-  margin: 0;
+  margin: 0; 
   padding: 0;
   display: flex;
 `

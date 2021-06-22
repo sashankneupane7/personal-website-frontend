@@ -17,6 +17,7 @@ import {
     NavRight
 } from "./NavbarElements";
 
+const PF = "http://localhost:4567/images/";
 
 const Navbar = (props) => {
     const {user, dispatch} = useContext(Context);
@@ -38,12 +39,12 @@ const Navbar = (props) => {
 							<NavItem>
 								<NavLinks to="/projects">Projects</NavLinks>
 							</NavItem>
-							<NavItem>
+							{user.username === "sashankneupane" ? <NavItem><NavLinks to="/blog/write">Write</NavLinks></NavItem> : <><NavItem>
 								<NavLinks to="/about">About</NavLinks>
 							</NavItem>
 							<NavItem>
 								<NavLinks to="/contact">Contact</NavLinks>
-							</NavItem>
+							</NavItem></>}
 						</NavMenu>
 						{/* {!props.user && (
                       <>
@@ -68,7 +69,7 @@ const Navbar = (props) => {
 							<NavRight>
 								<PpContainer>
 									<Link to="/settings">
-										<ProfileImage src={user.ProfilePic} alt="" />
+										<ProfileImage src={ PF + user.profilePic} alt="" />
 									</Link>
 								</PpContainer>
 								<NavBtn>

@@ -38,9 +38,9 @@ const WriteFormGroup = styled.div`
 		margin: 0 auto;
 	}
 
-  textarea {
-    resize: none;
-  }
+	textarea {
+		resize: none;
+	}
 `;
 
 const WriteSubmit = styled.button`
@@ -59,24 +59,22 @@ export default function Write() {
 	const { user } = useContext(Context);
 
 	const handleSubmit = async (e) => {
-    e.preventdefault()
-    const newPost = {
-      username: user.username,
-      title,
-      desc,
-    }
-    if (file) {
-      const data = new FormData();
-      const filename = Date.now() + file.name;
-      data.append("name",filename)
-      data.append("file", file);
-      newPost.photo = filename;
-      try{
-        await axios.post("/upload", data)
-      } catch(err){
-
-      }
-    }
+		e.preventDefault()
+		const newPost = {
+			username: user.username,
+			title,
+			desc,
+		};
+		if (file) {
+			const data = new FormData();
+			const filename = Date.now() + file.name;
+			data.append("name", filename);
+			data.append("file", file);
+			newPost.photo = filename;
+			try {
+				await axios.post("/upload", data);
+			} catch (err) {}
+		}
 		try {
 			const res = await axios.post("/posts", newPost);
 			window.location.replace("/post/" + res.data._id);
@@ -87,8 +85,7 @@ export default function Write() {
 		<WriteContainer>
 			{file && <WriteImage src={URL.createObjectURL(file)} />}
 			<WriteForm>
-				<WriteFormGroup onSubmit={handleSubmit}>
-					<div className="title">
+				<WriteFormGroup>
 						<label className="writeIcon" htmlFor="fileInput">
 							<i className="fas fa-plus"></i>
 						</label>
@@ -103,16 +100,17 @@ export default function Write() {
 							type="text"
 							placeholder="Title"
 							autoFocus={true}
-							onChange={(e) => {setTitle(e.target.value)}}
+							onChange={(e) => {
+								setTitle(e.target.value);
+							}}
 						/>
-						<WriteSubmit type="submit">Publish</WriteSubmit>
-					</div>
 					<textarea
-						className="writeText writeInput"
-						placeholder="Tell your story..."
-						type="text"
-						onChange={(e) => setDesc(e.target.value)}
+						className = "writeText writeInput"
+						placeholder = "Tell your story..."
+						type = "text"
+						onChange = {(e) => setDesc(e.target.value)}
 					></textarea>
+					<WriteSubmit type = "submit" onClick={handleSubmit}>Publish</WriteSubmit>
 				</WriteFormGroup>
 			</WriteForm>
 		</WriteContainer>

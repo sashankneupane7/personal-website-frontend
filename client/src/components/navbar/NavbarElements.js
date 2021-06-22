@@ -152,6 +152,7 @@ export const ProfileImage = styled.img`
     border: 1px solid white;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    object-fit: cover;
 
     &:hover {
         width: 40px;

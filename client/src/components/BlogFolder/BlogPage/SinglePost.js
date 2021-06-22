@@ -6,14 +6,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Context } from "../../../context/Context";
 
-const SinglePostContainer = styled.div`
-	flex: 9;
-`;
-
 const SinglePostWrapper = styled.div`
-	padding: 20px;
-	padding-right: 0;
-	border-radius: 10px;
+	flex: 9;
+	padding: 0 10px 10px 10px;
 
 	.writeInput {
 		font-size: 30px;
@@ -54,7 +49,8 @@ const SinglePostWrapper = styled.div`
 `;
 
 const SinglePostImage = styled.img`
-	width: 100%;
+	margin: 0 auto;
+	width: 90%;
 	height: 400px;
 	border-radius: 10px;
 	object-fit: cover;
@@ -157,10 +153,9 @@ const SinglePost = () => {
 	};
 
 	return (
-		<>
-			<SinglePostContainer>
+
 				<SinglePostWrapper>
-					{PF + post.photo && <SinglePostImage src={post.photo} alt="" />}
+					{post.photo && <SinglePostImage src={PF + post.photo} alt="" />}
 
 					{updateMode ? (
 						<input
@@ -215,8 +210,6 @@ const SinglePost = () => {
 						</button>
 					)}
 				</SinglePostWrapper>
-			</SinglePostContainer>
-		</>
 	);
 };
 // <i class="fa-solid fa-pen-to-square"></i>

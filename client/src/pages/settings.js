@@ -104,7 +104,7 @@ const SettingsSubmit = styled.button`
 `;
 
 export default function Settings() {
-  const { user } = useContext(Context);
+  const { user, dispatch } = useContext(Context);
 	const [file, setFile] = useState(null);
   const [name, setName] = useState(user.name)
   const [firstname, setFirstName] = useState(user.firstname);
@@ -115,9 +115,11 @@ export default function Settings() {
 	const [password, setPassword] = useState(user.password);
   const [success, setSucess] = useState(false);
 
+  const PF = "http://localhost:4567/images/" 
+
 	const handleUpdate = async (e) => {
     e.preventDefault();
-    // dispatch({ type: "UPDATE_START" });
+    dispatch({ type: "UPDATE_START" });
     console.log("hey")
     setName(
 			middlename
@@ -146,13 +148,13 @@ export default function Settings() {
 			} catch (err) {}
 		}
 		try {
-			await axios.put(`/users/${user._id}`, updatedUser);
+			const res = await axios.put(`/users/${user._id}`, updatedUser);
       setSucess(true);
-      // dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
+      dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
 		} catch (err) {
       console.log(err)
     }
-      // dispatch({ type: "UPDATE_FAILURE" });
+    dispatch({ type: "UPDATE_FAILURE" });
 	};
 
 	return (
@@ -166,7 +168,7 @@ export default function Settings() {
 					<label htmlFor="">Profile Picture</label>
 					<SettingsPp>
 						<ProfilePicture
-							src={require("../content/img/knahsas.jpg").default}
+							src={file ? URL.createObjectURL(file) : PF + user.profilePic}
 						/>
 						<label htmlFor="fileInput">
 							<ProfilePictureIcon>
