@@ -9,6 +9,10 @@ router.post("/register", async (req, res) => {
         const hashedPass = await bcrypt.hash(req.body.password, salt);
 
         const newUser = new User({
+            name: req.body.name,
+            firstname: req.body.firstname,
+            middlename: req.body.middlename,
+            lastname: req.body.lastname,
             username: req.body.username,
             email: req.body.email,
             password: hashedPass,
@@ -31,8 +35,8 @@ router.post("/login", async (req, res) => {
             user.password
         );
         !validated && res.status(400).json("Wrong Credentials!");
-        
-        const {password, ...others} = user._doc;
+
+        const { password, ...others } = user._doc;
         res.status(200).json(others);
     } catch (err) {
         res.status(500).json(err);

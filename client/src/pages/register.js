@@ -4,8 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const RegisterContainer = styled.div`
-    margin: 0;
-    padding: 0;
     min-height: calc(100vh - 80px - 90px);
     display: flex;
     flex-direction: column;
@@ -17,13 +15,17 @@ const RegisterContainer = styled.div`
 
 const RegisterTitle = styled.span`
     font-size: 70px;
+
+    @media screen and (max-width: 400px){
+        font-size: 50px;
+    }
 `;
 
 const RegisterForm = styled.form`
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    max-width: 700px;
+    max-width: 350px;
 
     * {
         border-radius: 10px;
@@ -41,7 +43,7 @@ const RegisterForm = styled.form`
     }
 
     .Button {
-        margin-top: 20px;
+        margin-top: 15px;
         cursor: pointer;
         background: lightcoral;
         border: none;
@@ -49,13 +51,20 @@ const RegisterForm = styled.form`
         border-radius: 10px;
         padding: 10px;
     }
-    .errorMessage {
-        padding-top: 10px;
-        color: white;
-        font-weight: 800;
+
+    .Button:last-child{
+        margin-bottom: 15px;
+        width: 100%;
     }
 
-    @media screen and (max-width: 600px) {
+    .errorMessage {
+        padding: 10px 0;
+        color: red;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    @media screen and (max-width: 400px) {
         margin: 0 auto;
         width: 70%;
     }
@@ -65,7 +74,7 @@ const Name = styled.div`
     display: flex;
     justify-content: space-between;
 
-    @media screen and (max-width: 600px){
+    @media screen and (max-width: 400px){
         flex-direction: column;
     }
 `;
@@ -84,7 +93,7 @@ const NamePart = styled.div`
         border: none;
     }
 
-    @media screen and (max-width: 600px){
+    @media screen and (max-width: 400px){
         width: 100%;
     }
 `;
@@ -95,6 +104,7 @@ const Asterick = () => {
     )}
 
 const Register = () => {
+    const [name, setName] = useState("");
     const [firstname, setFirstName] = useState("")
     const [middlename, setMiddleName] = useState("");
     const [lastname, setLastName] = useState("");
@@ -105,15 +115,21 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const newName = middlename ? `${firstname} ${middlename} ${lastname}` : `${firstname} ${lastname}`
+        setName(newName);
+        console.log(name)
         setError(false);
         try {
             const res = await axios.post("/auth/register", {
+                name,
+                firstname,
+                middlename,
+                lastname,
                 username,
                 email,
                 password,
             });
             res.data && window.location.replace("/login");
-            console.log(res);
         } catch (err) {
             setError(true);
         }
@@ -125,8 +141,8 @@ const Register = () => {
                 <div
                     style={{
                         padding: "10px",
-                        "padding-left": "0",
-                        "font-size": "10px",
+                        paddingLeft: "0",
+                        fontSize: "10px",
                     }}
                 >
                     Field with (<Asterick />) are required to fill.
@@ -189,12 +205,12 @@ const Register = () => {
                     Register
                 </button>
                 <Link to="/login">
-                    <button className="Button" style={{ background: "lightcoral", width: "100%"}}>
+                    <button className="Button" >
                         Login
                     </button>
                 </Link>
                 {error && (
-                    <span className="errorMessage">Something went wrong!</span>
+                    <span className="errorMessage">Something went wrong! Please try again.</span>
                 )}
             </RegisterForm>
         </RegisterContainer>

@@ -1,14 +1,17 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const PostContainer = styled.div`
     width: 300px;
     margin: 20px 25px 40px 25px;
+    border-radius: 10px;
+    border: 1px solid white;
 
     @media screen and (max-width: 900px) {
         margin: 20px auto;
         width: 90%;
+        border: none;
     }
 `;
 
@@ -27,7 +30,7 @@ const PostInfo = styled.div`
     .link {
         font-size: 24px;
         margin-top: 15px;
-        color: black;
+        color: white;
         text-decoration: none;
     }
 
@@ -57,7 +60,7 @@ const PostDate = styled.span`
 
 const PostDescription = styled.p`
     font-size: 14px;
-    color: #444;
+    color: lightgrey;
     line-height: 20px;
     margin-top: 20px;
     overflow: hidden;

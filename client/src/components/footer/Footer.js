@@ -36,7 +36,7 @@ const Footer = ()=> {
     <OuterFooter>
       <FooterContainer>
         <FooterLeft>
-          {config.title} &copy; {new Date().getFullYear()}
+          {width < 600 ? `${config.firstName}` : `${config.title}`}  &copy; {new Date().getFullYear()}  
         </FooterLeft>
         <FooterRight>
           {/* filtering the links first and mapping it to styled components */}

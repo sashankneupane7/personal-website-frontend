@@ -3,18 +3,17 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const LoginContainer = styled.div`
-    height: calc(100vh - 50px);
+    min-height: calc(100vh - 80px - 90px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url(${require("../content/img/blog-cover.jpg").default});
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: black;
+    color: white;
 `;
 
 const LoginTitle = styled.span`
-    font-size: 50px;
+    font-size: 70px;
 `;
 
 const LoginForm = styled.form`
@@ -22,7 +21,13 @@ const LoginForm = styled.form`
     display: flex;
     flex-direction: column;
 
+    width: 250px;
+    
+    * {
+        border-radius: 10px;
+    }
     label {
+        padding-left: 2px;
         margin: 10px 0;
     }
 
@@ -32,27 +37,20 @@ const LoginForm = styled.form`
         border: none;
     }
 
-    .registerButton {
-      position: absolute;
-      top: 100px;
-      right: 60px;
-      font-size: 15px;
-      background-color: teal;
-      border-radius: 10px;
-      padding: 7px 10px;
-      cursor: pointer;
-      border: none;
-      color: white;
+    .Button {
+        margin-top: 20px;
+        cursor: pointer;
+        background: lightcoral;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
     }
-`;
-const LoginButton = styled.button`
-    margin-top: 20px;
-    cursor: pointer;
-    background: lightcoral;
-    border: none;
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
+
+    .Button:last-child {
+        width: 100%;
+        background: teal;
+    }
 `;
 
 const Login = () => {
@@ -64,10 +62,10 @@ const Login = () => {
                 <input type="text" placeholder="Enter your email..." />
                 <label htmlFor="">Password</label>
                 <input type="password" placeholder="Enter your password..." />
-                <LoginButton>Login</LoginButton>
+                <button className = "Button">Login</button>
 
                 <Link to="/register">
-                    <button className="registerButton">Register</button>
+                    <button className="Button">Register</button>
                 </Link>
             </LoginForm>
         </LoginContainer>

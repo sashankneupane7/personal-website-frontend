@@ -27,11 +27,11 @@ function App() {
     const toggle = () => {
         setIsOpen(!isOpen);
     };
-    const user = false;
+    const user = true;
     return (
         <Router>
             <Sidebar isOpen={isOpen} toggle={toggle} />
-            <Navbar toggle={toggle} />
+            <Navbar user={user} toggle={toggle} />
             <Switch>
                 <Route path="/settings">
                     { user ? <Settings /> : <Register />}

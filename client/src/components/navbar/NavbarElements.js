@@ -3,6 +3,7 @@ import { Link as LinkR, NavLink} from 'react-router-dom';
 // import { Link as LinkS } from 'react-scroll';
 
 export const Nav = styled.nav`
+  max-width: 100vw;
   background: black;
   height: 80px;
   display: flex;
@@ -132,4 +133,20 @@ export const NavBtnLink = styled(LinkR)`
     padding: 9.6px 19.6px;
     border: none;
   }
+`
+
+export const PpContainer = styled.div`
+  width: 40px;
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 768px){
+    display: none
+  }
+`
+export const ProfileImage = styled.img`
+  border-radius: 50%;
+  width: 100%;
+  border: 1px solid white;
+  cursor: pointer;
 `

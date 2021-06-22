@@ -8,7 +8,7 @@ const SideBarContainer = styled.div`
   flex: 3;
   margin: 20px;
   padding-bottom: 30px;
-  background: white;
+  background: grey;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -39,8 +39,9 @@ const SideBarTitle = styled.span`
   text-align: center;
 `
 const ProfileImage = styled.img`
+
   margin-top: 15px;
-  width: 100%;
+  width: 80%;
   border-radius: 50%;
   border: 2px solid black;
 `
@@ -55,7 +56,7 @@ const SideBarList = styled.ul`
 
   .link{
     text-decoration: none;
-    color: grey;
+    color: #222;
   }
   .link:hover{
     color: black;
@@ -109,9 +110,7 @@ export default function Sidebar() {
                   src={require("../../../content/img/knahsas.jpg").default}
               />
               <Bio>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Commodi, saepe natus! Tenetur quas et eius delectus inventore
-                  neque tempore voluptatum.
+                  I am Sashank Neupane, a student, tech enthusiast, and a problem-solver.
               </Bio>
           </SideBarItem>
           <SideBarItem>

@@ -22,11 +22,13 @@ const Blog = () => {
   }, [search])
     return (
         <>
-          <Header />
-          <BlogContainer>
-              <Posts posts = {posts}/>
-              <SideBar>SideBar</SideBar>
-          </BlogContainer>
+            <Header />
+            <div style={{background:"black"}}>
+                <BlogContainer>
+                    <Posts posts={posts} />
+                    <SideBar>SideBar</SideBar>
+                </BlogContainer>
+            </div>
         </>
     );
 };

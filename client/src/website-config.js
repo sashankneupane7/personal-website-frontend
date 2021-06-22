@@ -1,4 +1,6 @@
 const config = {
+  firstName: 'Sashank',
+  lastName: 'Neupane',
   title: 'Sashank Neupane',
   description: 'A personal portfolio.',
   mainDescription:
