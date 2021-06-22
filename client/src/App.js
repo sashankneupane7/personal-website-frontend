@@ -7,9 +7,9 @@ import Footer from "./components/footer/Footer";
 import Home from "./pages/home";
 // import PostTemplate from './templates/PostTemplate'
 
-import Settings from "./pages/other/settings";
-import Register from "./pages/other/register";
-import Login from "./pages/other/login";
+import Settings from "./pages/settings";
+import Register from "./pages/register";
+import Login from "./pages/login";
 import Write from "./pages/blog/write";
 import PostTemplate from './templates/PostTemplate'
 

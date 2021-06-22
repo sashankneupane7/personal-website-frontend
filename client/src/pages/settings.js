@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import SideBar from '../../components/BlogFolder/BlogPage/Sidebar'
+import SideBar from '../components/BlogFolder/BlogPage/Sidebar'
 
 const SettingsContainer = styled.div`
   display: flex;
@@ -104,7 +104,7 @@ export default function Settings() {
         <SettingsForm>
           <label htmlFor="">Profile Picture</label>
           <SettingsPp>
-            <ProfilePicture src={require('../../content/img/knahsas.jpg').default}/>
+            <ProfilePicture src={require('../content/img/knahsas.jpg').default}/>
             <label htmlFor="fileInput"><ProfilePictureIcon><i className = "far fa-user-circle"></i></ProfilePictureIcon></label>
           <input type="file" id="fileInput" style={{display:"none"}}/>
           </SettingsPp>

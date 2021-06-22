@@ -6,6 +6,7 @@ export const OuterFooter = styled.div`
   background: black;
   color: white;
   line-height: 60px;
+  /* i have added 30px padding bottom so total footer height is 90px */
 `
 
 export const FooterContainer = styled.div`

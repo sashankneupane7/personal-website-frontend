@@ -30,6 +30,13 @@ const PostInfo = styled.div`
         color: black;
         text-decoration: none;
     }
+
+    .categories{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
 `;
 
 const PostCategory = styled.span`
@@ -65,9 +72,11 @@ const Post = ({ post }) => {
         <PostContainer>
             {post.photo && <PostImage key={post._id} src={post.photo} alt="" />}
             <PostInfo>
-                <div>
+                <div className="categories">
                     {post.categories.map((c, i) => (
-                        <PostCategory key={i}>{c.name}</PostCategory>
+                        <PostCategory className="post-cats" key={i}>
+                            {c.toUpperCase()}
+                        </PostCategory>
                     ))}
                 </div>
                 <Link className="link" to={`/post/${post._id}`}>

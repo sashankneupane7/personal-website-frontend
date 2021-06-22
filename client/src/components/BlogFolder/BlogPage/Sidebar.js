@@ -118,7 +118,7 @@ export default function Sidebar() {
               <SideBarTitle>Categories</SideBarTitle>
               <SideBarList>
                   {cats.map((c) => (
-                      <Link className="link" to={`/blog/?cat=${c.name}`}>
+                      <Link className="link" key={c.name} to={`/blog/?cat=${c.name}`}>
                           <SideBarListItem key={c._id}>
                               {c.name}
                           </SideBarListItem>
