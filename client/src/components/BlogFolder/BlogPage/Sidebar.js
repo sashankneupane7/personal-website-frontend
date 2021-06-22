@@ -1,4 +1,6 @@
-import React from 'react'
+import axios from 'axios'
+import React, {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import { Facebook, Github, Instagram, Twitter } from '../../../components/icons/SocialMedia'
 
@@ -50,6 +52,14 @@ const Bio = styled.p`
 const SideBarList = styled.ul`
   list-style: none;
   margin-bottom: 30px;
+
+  .link{
+    text-decoration: none;
+    color: grey;
+  }
+  .link:hover{
+    color: black;
+  }
 `
 
 const SideBarListItem = styled.li`
@@ -81,35 +91,58 @@ const Icon = styled.li`
 `
 
 export default function Sidebar() {
+
+  const [cats, setCats] = useState([]);
+
+  useEffect(()=> {
+    const getCats = async() => {
+      const res = await axios.get("/categories")
+      setCats(res.data)
+    }
+    getCats();
+  }, [])
   return (
-    <SideBarContainer>
-      <SideBarItem>
-        <SideBarTitle>ABOUT ME</SideBarTitle>
-        <ProfileImage src={require('../../../content/img/knahsas.jpg').default} />
-        <Bio>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, saepe natus! Tenetur quas et eius delectus inventore neque tempore voluptatum.</Bio>
-      </SideBarItem>
-      <SideBarItem>
-        <SideBarTitle>Categories</SideBarTitle>
-        <SideBarList>
-          <SideBarListItem>Life</SideBarListItem>
-          <SideBarListItem>Music</SideBarListItem>
-          <SideBarListItem>Style</SideBarListItem>
-          <SideBarListItem>Sport</SideBarListItem>
-          <SideBarListItem>Cinema</SideBarListItem>
-          <SideBarListItem>Tech</SideBarListItem>
-        </SideBarList>
-      </SideBarItem>
-      <SideBarItem>
-        <SideBarTitle>
-          FOLLOW ME
-        </SideBarTitle>
-        <SideBarSocial>
-          <Icon><Facebook /></Icon>
-          <Icon><Twitter /></Icon>
-          <Icon><Github /></Icon>
-          <Icon><Instagram /></Icon>
-        </SideBarSocial>
-      </SideBarItem>
-    </SideBarContainer>
-  )
+      <SideBarContainer>
+          <SideBarItem>
+              <SideBarTitle>ABOUT ME</SideBarTitle>
+              <ProfileImage
+                  src={require("../../../content/img/knahsas.jpg").default}
+              />
+              <Bio>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Commodi, saepe natus! Tenetur quas et eius delectus inventore
+                  neque tempore voluptatum.
+              </Bio>
+          </SideBarItem>
+          <SideBarItem>
+              <SideBarTitle>Categories</SideBarTitle>
+              <SideBarList>
+                  {cats.map((c) => (
+                      <Link className="link" to={`/blog/?cat=${c.name}`}>
+                          <SideBarListItem key={c._id}>
+                              {c.name}
+                          </SideBarListItem>
+                      </Link>
+                  ))}
+              </SideBarList>
+          </SideBarItem>
+          <SideBarItem>
+              <SideBarTitle>FOLLOW ME</SideBarTitle>
+              <SideBarSocial>
+                  <Icon>
+                      <Facebook />
+                  </Icon>
+                  <Icon>
+                      <Twitter />
+                  </Icon>
+                  <Icon>
+                      <Github />
+                  </Icon>
+                  <Icon>
+                      <Instagram />
+                  </Icon>
+              </SideBarSocial>
+          </SideBarItem>
+      </SideBarContainer>
+  );
 }

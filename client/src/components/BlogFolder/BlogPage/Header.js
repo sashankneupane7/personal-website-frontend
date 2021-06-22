@@ -33,15 +33,18 @@ const BlogCover = styled.img`
   object-fit: cover;
 `
 
+
 const Header = () => {
   return(
-    <BlogHeader>
-        <HeaderTitles>
-          <BlogSmallTitle>My Personal</BlogSmallTitle>
-        <BlogBigTitle>Blog</BlogBigTitle>
-        </HeaderTitles>
-        <BlogCover src={require('../../../content/img/blog-cover.jpg').default}/>
-      </BlogHeader>
+    <>
+      <BlogHeader>
+          <HeaderTitles>
+            <BlogSmallTitle>My Personal</BlogSmallTitle>
+          <BlogBigTitle>Blog</BlogBigTitle>
+          </HeaderTitles>
+          <BlogCover src={require('../../../content/img/blog-cover.jpg').default}/>
+        </BlogHeader>
+      </>
   )
 }
 

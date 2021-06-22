@@ -39,17 +39,8 @@ const Footer = ()=> {
           {config.title} &copy; {new Date().getFullYear()}
         </FooterLeft>
         <FooterRight>
-          {Links.map((element) => {
-            if (width > 768 || element.displayMobile){
-              return(
-                <FooterLinks key={element.text}>{element.text}</FooterLinks>
-              )
-            } else {
-              return (
-                <></>
-              )
-            }
-          } )}
+          {/* filtering the links first and mapping it to styled components */}
+          {Links.filter(elm => width > 768 || elm.displayMobile).map(elm => <FooterLinks key={elm.text}>{elm.text}</FooterLinks>)}
         </FooterRight>
       </FooterContainer>
     </OuterFooter>

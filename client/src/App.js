@@ -11,6 +11,7 @@ import Settings from "./pages/other/settings";
 import Register from "./pages/other/register";
 import Login from "./pages/other/login";
 import Write from "./pages/blog/write";
+import PostTemplate from './templates/PostTemplate'
 
 import PageRenderer from "./components/PageRenderer";
 
@@ -18,7 +19,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Redirect,
 } from "react-router-dom";
 import "./styles/global.css";
 
@@ -40,7 +40,7 @@ function App() {
                 <Route path="/login">{user ? <Home /> : <Login />}</Route>
                 <Route path="/:page" exact component={PageRenderer} />
                 <Route path="/" exact component={Home} />
-                {/* <Route path="/post" exact component={PostTemplate} /> */}
+                <Route path="/post/:postid" component={PostTemplate} />
                 <Route path="/blog/write">
                     {user ? <Write /> : <Register />}
                 </Route>

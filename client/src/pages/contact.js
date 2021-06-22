@@ -6,8 +6,12 @@ const ContactContainer = styled.div`
 
 const Contact = () => {
   return (
-    <ContactContainer> Hello</ContactContainer>
-  )
+      <>
+        <ContactContainer> 
+          Hello
+        </ContactContainer>
+      </>
+  );
 }
 
 export default Contact

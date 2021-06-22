@@ -19,6 +19,5 @@ export default function PageRenderer () {
   const {
     params: { page }
   } = useRouteMatch()
-  console.log(page)
   return generatePage(page)
 }
