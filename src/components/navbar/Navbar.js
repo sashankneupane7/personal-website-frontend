@@ -39,7 +39,7 @@ const Navbar = (props) => {
 							<NavItem>
 								<NavLinks to="/projects">Projects</NavLinks>
 							</NavItem>
-							{user.username === "sashankneupane" ? <NavItem><NavLinks to="/blog/write">Write</NavLinks></NavItem> : <><NavItem>
+							{user?.username === "sashankneupane" ? <NavItem><NavLinks to="/blog/write">Write</NavLinks></NavItem> : <><NavItem>
 								<NavLinks to="/about">About</NavLinks>
 							</NavItem>
 							<NavItem>
@@ -65,7 +65,7 @@ const Navbar = (props) => {
 								</NavBtn>
 							</>
 						)}
-						{user && (
+						{user ? (
 							<NavRight>
 								<PpContainer>
 									<Link to="/settings">
@@ -78,7 +78,7 @@ const Navbar = (props) => {
 									</NavBtnLink>
 								</NavBtn>
 							</NavRight>
-						)}
+						) : <> </>}
 					</NavbarContainer>
 				</Nav>
 			</>
