@@ -45,7 +45,7 @@ function App() {
                 <Route path="/blog/write">
                     {user ? <Write /> : <Register />}
                 </Route>
-                <Route component={() => 404} />
+                <Route path="/" component={() => <Home/>} />
             </Switch>
             <Footer />
         </Router>
