@@ -145,7 +145,7 @@ export default function Settings() {
 			data.append("file", file);
 			updatedUser.profilePic = filename;
 			try {
-				await axios.post(`${config.serverURL}}/api/upload`, data);
+				await axios.post(`${config.serverURL}/api/upload`, data);
 			} catch (err) {}
 		}
 		try {
