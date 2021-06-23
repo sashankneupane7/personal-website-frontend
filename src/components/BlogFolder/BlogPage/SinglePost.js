@@ -127,7 +127,7 @@ const SinglePost = () => {
 
 	useEffect(() => {
 		const getPost = async () => {
-			const res = await axios.get(`${config.serverURL}/posts/` + path);
+			const res = await axios.get(`${config.serverURL}/api/posts/` + path);
 			setPost(res.data);
 			setTitle(res.data.title);
 			setDesc(res.data.desc);
@@ -137,7 +137,7 @@ const SinglePost = () => {
 
 	const handleUpdate = async () => {
 		try {
-			await axios.put(`${config.serverURL}/posts/${post._id}`, {username: user.username, title, desc }
+			await axios.put(`${config.serverURL}/api/posts/${post._id}`, {username: user.username, title, desc }
 			);
             window.location.reload();
 		} catch (err) {}
@@ -147,7 +147,7 @@ const SinglePost = () => {
 	const handleDelete = async (e) => {
 		console.log(user.username);
 		try {
-			await axios.delete(`${config.serverURL}/posts/` + path, {
+			await axios.delete(`${config.serverURL}/api/posts/` + path, {
 				data: { username: user.username },
 			});
 		} catch (err) {}

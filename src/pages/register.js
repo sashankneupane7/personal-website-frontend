@@ -119,7 +119,7 @@ const Register = () => {
         setName(newName);
         setError(false);
         try {
-            const res = await axios.post(`${config.serverURL}/auth/register`, {
+            const res = await axios.post(`${config.serverURL}/api/auth/register`, {
                 name,
                 firstname,
                 middlename,

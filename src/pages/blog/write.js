@@ -77,8 +77,8 @@ export default function Write() {
 			} catch (err) {}
 		}
 		try {
-			const res = await axios.post(`${config.serverURL}/posts`, newPost);
-			window.location.replace(`${config.serverURL}/post/` + res.data._id);
+			const res = await axios.post(`${config.serverURL}/api/posts`, newPost);
+			window.location.replace(`/post/` + res.data._id);
 		} catch (err) {}
 	};
 

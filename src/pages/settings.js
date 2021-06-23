@@ -149,7 +149,7 @@ export default function Settings() {
 			} catch (err) {}
 		}
 		try {
-			const res = await axios.put(`${config.serverURL}/users/${user._id}`, updatedUser);
+			const res = await axios.put(`${config.serverURL}/api/users/${user._id}`, updatedUser);
       setSucess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
 		} catch (err) {

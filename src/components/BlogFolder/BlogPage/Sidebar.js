@@ -98,7 +98,7 @@ export default function Sidebar() {
 
   useEffect(()=> {
     const getCats = async() => {
-      const res = await axios.get(`${config.serverURL}/categories`)
+      const res = await axios.get(`${config.serverURL}/api/categories`)
       setCats(res.data)
     }
     getCats();

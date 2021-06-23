@@ -15,7 +15,7 @@ const Blog = () => {
 
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const res = await axios.get(`${config.serverURL}/posts` + search);
+			const res = await axios.get(`${config.serverURL}/api/posts` + search);
 			setPosts(res.data);
 		};
 		fetchPosts();
