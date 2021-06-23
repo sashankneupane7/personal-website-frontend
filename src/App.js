@@ -17,7 +17,7 @@ import PostTemplate from './templates/PostTemplate'
 import PageRenderer from "./components/PageRenderer";
 
 import {
-    HashRouter as Router,
+    BrowserRouter as Router,
     Switch,
     Route,
 } from "react-router-dom";

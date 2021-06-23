@@ -40,12 +40,20 @@ const Navbar = (props) => {
 							<NavItem>
 								<NavLinks to="/projects">Projects</NavLinks>
 							</NavItem>
-							{user?.username === "sashankneupane" ? <NavItem><NavLinks to="/blog/write">Write</NavLinks></NavItem> : <><NavItem>
-								<NavLinks to="/about">About</NavLinks>
-							</NavItem>
-							<NavItem>
-								<NavLinks to="/contact">Contact</NavLinks>
-							</NavItem></>}
+							{user?.username === "sashankneupane" ? (
+								<NavItem>
+									<NavLinks to="/blog/write">Write</NavLinks>
+								</NavItem>
+							) : (
+								<>
+									<NavItem>
+										<NavLinks to="/about">About</NavLinks>
+									</NavItem>
+									<NavItem>
+										<NavLinks to="/contact">Contact</NavLinks>
+									</NavItem>
+								</>
+							)}
 						</NavMenu>
 						{/* {!props.user && (
                       <>
@@ -61,8 +69,14 @@ const Navbar = (props) => {
                   )} */}
 						{!user && (
 							<>
-								<NavBtn>
+								{/* <NavBtn>
 									<NavBtnLink to="/subscribe">Subscribe</NavBtnLink>
+								</NavBtn> */}
+								<NavBtn>
+									<NavBtnLink to="/login">Login</NavBtnLink>
+								</NavBtn>
+								<NavBtn>
+									<NavBtnLink to="/Register">Register</NavBtnLink>
 								</NavBtn>
 							</>
 						)}
@@ -70,7 +84,7 @@ const Navbar = (props) => {
 							<NavRight>
 								<PpContainer>
 									<Link to="/settings">
-										<ProfileImage src={ PF + user.profilePic} alt="" />
+										<ProfileImage src={PF + user.profilePic} alt="" />
 									</Link>
 								</PpContainer>
 								<NavBtn>
@@ -79,7 +93,9 @@ const Navbar = (props) => {
 									</NavBtnLink>
 								</NavBtn>
 							</NavRight>
-						) : <> </>}
+						) : (
+							<> </>
+						)}
 					</NavbarContainer>
 				</Nav>
 			</>
