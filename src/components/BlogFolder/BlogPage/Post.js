@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import config from "../../../website-config"
 
 const PostContainer = styled.div`
     width:31%;
@@ -77,7 +78,7 @@ const PostDescription = styled.p`
 `;
 
 const Post = ({ post }) => {
-    const PF = "http://localhost:4567/images/"
+    const PF = `${config.serverURL}/images/`
 
     return (
         <PostContainer>

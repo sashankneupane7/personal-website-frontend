@@ -7,6 +7,7 @@ import { BlogContainer } from "../components/BlogFolder/BlogPage/BlogElements";
 // import SideBar from "../components/BlogFolder/BlogPage/Sidebar";
 
 import axios from "axios";
+import config from "../website-config";
 
 const Blog = () => {
 	const [posts, setPosts] = useState([]);
@@ -14,7 +15,7 @@ const Blog = () => {
 
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const res = await axios.get("/posts" + search);
+			const res = await axios.get(`${config.serverURL}/posts` + search);
 			setPosts(res.data);
 		};
 		fetchPosts();

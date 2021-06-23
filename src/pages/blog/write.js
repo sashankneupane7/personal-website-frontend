@@ -3,6 +3,7 @@ import styled from "styled-components";
 import "./css/write.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
+import config from "../../website-config";
 
 const WriteContainer = styled.div`
 	padding-top: 50px;
@@ -76,8 +77,8 @@ export default function Write() {
 			} catch (err) {}
 		}
 		try {
-			const res = await axios.post("/posts", newPost);
-			window.location.replace("/post/" + res.data._id);
+			const res = await axios.post(`${config.serverURL}/posts`, newPost);
+			window.location.replace(`${config.serverURL}/post/` + res.data._id);
 		} catch (err) {}
 	};
 

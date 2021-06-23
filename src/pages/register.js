@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import config from "../website-config"
 const RegisterContainer = styled.div`
     min-height: calc(100vh - 80px - 90px);
     display: flex;
@@ -117,10 +117,9 @@ const Register = () => {
         e.preventDefault();
         const newName = middlename ? `${firstname} ${middlename} ${lastname}` : `${firstname} ${lastname}`
         setName(newName);
-        console.log(name)
         setError(false);
         try {
-            const res = await axios.post("/auth/register", {
+            const res = await axios.post(`${config.serverURL}/auth/register`, {
                 name,
                 firstname,
                 middlename,

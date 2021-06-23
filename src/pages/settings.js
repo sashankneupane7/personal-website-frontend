@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SideBar from "../components/BlogFolder/BlogPage/Sidebar";
 import { Context } from "../context/Context";
 import axios from "axios";
+import config from "../website-config"
 
 const SettingsContainer = styled.div`
 	display: flex;
@@ -115,7 +116,7 @@ export default function Settings() {
 	const [password, setPassword] = useState(user.password);
   const [success, setSucess] = useState(false);
 
-  const PF = "http://localhost:4567/images/" 
+  const PF = `${config.serverURL}/images/` 
 
 	const handleUpdate = async (e) => {
     e.preventDefault();
@@ -144,11 +145,11 @@ export default function Settings() {
 			data.append("file", file);
 			updatedUser.profilePic = filename;
 			try {
-				await axios.post("/upload", data);
+				await axios.post(`${config.serverURL}}/upload`, data);
 			} catch (err) {}
 		}
 		try {
-			const res = await axios.put(`/users/${user._id}`, updatedUser);
+			const res = await axios.put(`${config.serverURL}/users/${user._id}`, updatedUser);
       setSucess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
 		} catch (err) {

@@ -16,8 +16,9 @@ import {
     ProfileImage,
     NavRight
 } from "./NavbarElements";
+import config from "../../website-config"
 
-const PF = "http://localhost:4567/images/";
+const PF = `${config.serverURL}/images/`;
 
 const Navbar = (props) => {
     const {user, dispatch} = useContext(Context);

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Context } from "../../../context/Context";
+import config from "../../../website-config"
 
 const SinglePostWrapper = styled.div`
 	flex: 9;
@@ -118,7 +119,7 @@ const SinglePost = () => {
 	const path = location.pathname.split("/")[2];
 	const [post, setPost] = useState({});
 	const { user } = useContext(Context);
-	const PF = "http://localhost:4567/images/";
+	const PF = `${config.serverURL}/images/`;
 
 	const [title, setTitle] = useState("");
 	const [desc, setDesc] = useState("");
@@ -126,7 +127,7 @@ const SinglePost = () => {
 
 	useEffect(() => {
 		const getPost = async () => {
-			const res = await axios.get("/posts/" + path);
+			const res = await axios.get(`${config.serverURL}/posts/` + path);
 			setPost(res.data);
 			setTitle(res.data.title);
 			setDesc(res.data.desc);
@@ -136,7 +137,7 @@ const SinglePost = () => {
 
 	const handleUpdate = async () => {
 		try {
-			await axios.put(`/posts/${post._id}`, {username: user.username, title, desc }
+			await axios.put(`${config.serverURL}/posts/${post._id}`, {username: user.username, title, desc }
 			);
             window.location.reload();
 		} catch (err) {}
@@ -146,7 +147,7 @@ const SinglePost = () => {
 	const handleDelete = async (e) => {
 		console.log(user.username);
 		try {
-			await axios.delete("/posts/" + path, {
+			await axios.delete(`${config.serverURL}/posts/` + path, {
 				data: { username: user.username },
 			});
 		} catch (err) {}

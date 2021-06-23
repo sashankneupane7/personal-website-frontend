@@ -2,6 +2,7 @@ const config = {
   firstName: 'Sashank',
   lastName: 'Neupane',
   title: 'Sashank Neupane',
+  serverURL: "https://sashankneupane.herokuapp.com",
   description: 'A personal portfolio.',
   mainDescription:
     'A personal portfolio and blogging website of Sashank Neupane.',
