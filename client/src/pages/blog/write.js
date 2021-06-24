@@ -3,6 +3,7 @@ import styled from "styled-components";
 import "./css/write.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
+import config from "../../website-config";
 
 const WriteContainer = styled.div`
 	padding-top: 50px;
@@ -72,12 +73,12 @@ export default function Write() {
 			data.append("file", file);
 			newPost.photo = filename;
 			try {
-				await axios.post("/upload", data);
+				await axios.post(`${config.serverURL}/api/upload`, data);
 			} catch (err) {}
 		}
 		try {
-			const res = await axios.post("/posts", newPost);
-			window.location.replace("/post/" + res.data._id);
+			const res = await axios.post(`${config.serverURL}/api/posts`, newPost);
+			window.location.replace(`/post/` + res.data._id);
 		} catch (err) {}
 	};
 

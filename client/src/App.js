@@ -22,6 +22,7 @@ import {
     Route,
 } from "react-router-dom";
 import "./styles/global.css";
+import Blog from "./pages/blog";
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +46,8 @@ function App() {
                 <Route path="/blog/write">
                     {user ? <Write /> : <Register />}
                 </Route>
-                <Route component={() => 404} />
+                <Route path="/blog/:anything"><Blog /></Route>
+                <Route path="/:anything" component={() => <Home/>} />
             </Switch>
             <Footer />
         </Router>

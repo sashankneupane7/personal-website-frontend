@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import { Facebook, Github, Instagram, Twitter } from '../../../components/icons/SocialMedia'
+import config from '../../../website-config'
 
 const SideBarContainer = styled.div`
   flex: 3;
@@ -97,7 +98,7 @@ export default function Sidebar() {
 
   useEffect(()=> {
     const getCats = async() => {
-      const res = await axios.get("/categories")
+      const res = await axios.get(`${config.serverURL}/api/categories`)
       setCats(res.data)
     }
     getCats();

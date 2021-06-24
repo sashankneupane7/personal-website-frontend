@@ -11,6 +11,12 @@ const path = require("path")
 const multer = require("multer");
 
 dotenv.config();
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname,"/images")))
 
@@ -19,7 +25,6 @@ mongoose
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
-        useFindAndModify: true,
     })
     .then(console.log("Connected to MongoDB"))
     .catch(err => console.log(err));
@@ -44,6 +49,6 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute)
 
-app.listen("4567", () => {
+app.listen(process.env.PORT, () => {
     console.log("Backend is running.");
 });

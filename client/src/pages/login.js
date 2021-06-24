@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Context } from "../context/Context";
 import axios from "axios";
-
+import config from "../website-config"
 const LoginContainer = styled.div`
     min-height: calc(100vh - 80px - 90px);
     display: flex;
@@ -69,7 +69,7 @@ const Login = () => {
         e.preventDefault();
         dispatch({ type: "LOGIN_START" });
         try {
-            const res = await axios.post("/auth/login", {
+            const res = await axios.post(`${config.serverURL}/api/auth/login`, {
                 username: userRef.current.value,
                 password: passwordRef.current.value,
             });
