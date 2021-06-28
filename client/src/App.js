@@ -23,6 +23,7 @@ import {
 } from "react-router-dom";
 import "./styles/global.css";
 import Blog from "./pages/blog";
+import Meditation from "./projects/meditation/Meditation";
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);
@@ -46,6 +47,7 @@ function App() {
                 <Route path="/blog/write">
                     {user ? <Write /> : <Register />}
                 </Route>
+                <Route path="/projects/meditation" component={Meditation}></Route>
                 <Route path="/blog/:anything"><Blog /></Route>
                 <Route path="/:anything" component={() => <Home/>} />
             </Switch>
