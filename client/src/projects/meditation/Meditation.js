@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
 	Header,
 	Containers,
@@ -11,11 +11,11 @@ import {
 	Icon,
 	Timer,
 	PpImg,
-	Video,
 } from "./MeditationElements";
+import "./meditate.css"
 
 function msToTimeString(ms) {
-	let seconds = (ms / 1000) % 60;
+	let seconds = Math.floor((ms / 1000)) % 60;
 	let minutes = Math.floor(ms / 1000 / 60) % 60;
 	let hours = Math.floor(ms / 1000 / 60 / 60);
 
@@ -30,17 +30,32 @@ const Meditation = () => {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [time, setTime] = useState(300000);
 	const [video, setVideo] = useState("fire");
+
+  useEffect(()=>{
+    (isPlaying && time > 0) && setTimeout(()=>setTime(time-100), 100)
+  }, [time, isPlaying])
+
+  const vidRef = useRef(null)
+  const playPause = () => {
+    setIsPlaying(!isPlaying)
+    if (isPlaying){
+      vidRef.current.pause()
+    } else {
+      vidRef.current.play()
+    }
+  }
+
 	return (
 		<>
-			<Video playsInline loop>
+			<video ref={vidRef} id="video" key={video} playsInline loop>
 				<source
 					src={require(`./content/videos/${video}.mp4`).default}
 					type="video/mp4"
 				/>
-			</Video>
-			<Header>Meditate with Sash</Header>
+			</video>
+			<Header className={isPlaying ? "zen" : ""}>Meditate with Sash</Header>
 			<Containers>
-				<LeftContainer>
+				<LeftContainer className={isPlaying ? "zen" : ""}>
 					<BtnWrapper>
 						<Input
 							type="button"
@@ -92,9 +107,7 @@ const Meditation = () => {
 				<CenterContainer>
 					<div>
 						<PpImg
-							onClick={() => {
-								setIsPlaying(!isPlaying);
-							}}
+							onClick={playPause}
 							src={
 								isPlaying && time > 0
 									? require("./content/images/pause.png").default
@@ -105,7 +118,7 @@ const Meditation = () => {
 					</div>
 					<Timer>{msToTimeString(time)}</Timer>
 				</CenterContainer>
-				<RightContainer>
+				<RightContainer className={isPlaying ? "zen" : ""}>
 					<IconContainer>
 						<Icon
 							src={require("./content/images/rain.png").default}
