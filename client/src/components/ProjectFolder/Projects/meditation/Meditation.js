@@ -12,10 +12,10 @@ import {
 	Timer,
 	PpImg,
 } from "./MeditationElements";
-import "./meditate.css"
+import "./meditate.css";
 
 function msToTimeString(ms) {
-	let seconds = Math.floor((ms / 1000)) % 60;
+	let seconds = Math.floor(ms / 1000) % 60;
 	let minutes = Math.floor(ms / 1000 / 60) % 60;
 	let hours = Math.floor(ms / 1000 / 60 / 60);
 
@@ -31,19 +31,24 @@ const Meditation = () => {
 	const [time, setTime] = useState(300000);
 	const [video, setVideo] = useState("fire");
 
-  useEffect(()=>{
-    (isPlaying && time > 0) && setTimeout(()=>setTime(time-100), 100)
-  }, [time, isPlaying])
+		const vidRef = useRef(null);
 
-  const vidRef = useRef(null)
-  const playPause = () => {
-    setIsPlaying(!isPlaying)
-    if (isPlaying){
-      vidRef.current.pause()
-    } else {
-      vidRef.current.play()
-    }
-  }
+	useEffect(() => {
+		isPlaying && time > 0 && setTimeout(() => setTime(time - 100), 100);
+	}, [time, isPlaying]);
+	if (time === 0){
+		setIsPlaying(isPlaying => !isPlaying)
+	}
+	const playPause = () => {
+		if (time > 0) {
+			setIsPlaying(!isPlaying);
+			if (isPlaying && time > 0) {
+				vidRef.current.pause();
+			} else {
+				vidRef.current.play();
+			}
+		}
+	};
 
 	return (
 		<>
@@ -83,13 +88,10 @@ const Meditation = () => {
 							className="inputBox"
 							onLoad={(e) => (e.target.placeholder = "Custom")}
 							onChange={(e) => {
-								if (!isPlaying) {
+								if (!isPlaying && e.target.value > 0) {
 									setTime(Number(e.target.value) * 60 * 1000);
 								}
 								console.log(time);
-								if (time <= 0) {
-									setIsPlaying(false);
-								}
 							}}
 							onBlur={(e) => (e.target.placeholder = "Custom")}
 							onFocus={(e) => (e.target.placeholder = "")}
@@ -97,8 +99,6 @@ const Meditation = () => {
 								if (time > 0 && e.key === "Enter") {
 									setIsPlaying(true);
 									setTime(e.target.value);
-								} else {
-									setIsPlaying(isPlaying);
 								}
 							}}
 						/>
@@ -116,7 +116,7 @@ const Meditation = () => {
 							alt="playpause"
 						/>
 					</div>
-					<Timer>{msToTimeString(time)}</Timer>
+					<Timer>{console.log(isPlaying, time)}{msToTimeString(time)}</Timer>
 				</CenterContainer>
 				<RightContainer className={isPlaying ? "zen" : ""}>
 					<IconContainer>

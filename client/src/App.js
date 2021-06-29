@@ -23,7 +23,7 @@ import {
 } from "react-router-dom";
 import "./styles/global.css";
 import Blog from "./pages/blog";
-import Meditation from "./projects/meditation/Meditation";
+import Meditation from "./components/ProjectFolder/Projects/meditation/Meditation";
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);

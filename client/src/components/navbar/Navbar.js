@@ -17,6 +17,7 @@ import {
     NavRight
 } from "./NavbarElements";
 import config from "../../website-config"
+import Maintenance from "../Under Maintenance/Maintenance";
 
 const PF = `${config.serverURL}/images/`;
 
@@ -28,6 +29,7 @@ const Navbar = (props) => {
     return (
 			<>
 				<Nav>
+					<Maintenance />
 					<NavbarContainer>
 						<NavLogo to="/">Sashank Neupane</NavLogo>
 						<MobileIcon onClick={props.toggle}>

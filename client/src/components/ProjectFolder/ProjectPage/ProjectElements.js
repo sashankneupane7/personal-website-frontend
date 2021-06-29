@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {Button} from '../../../components/ButtonElement'
+import {Link} from 'react-router-dom'
 
 export const ProjectContainer = styled.div`
   color: white;
@@ -107,29 +108,39 @@ export const Img = styled.img`
 `
 
 export const ProjectElement = ({id, dark, imgStart, topline, headline, description, buttonLabel, imgsrc, primary}) => {
-  return(
-    <>
-      <ProjectContainer dark={dark} id={id}>
-        <ProjectWrapper>
-          <ProjectRow imgStart={imgStart}>
-            <Column1>
-              <TextWrapper>
-                <TopLine>{topline}</TopLine>
-                <Heading dark={dark}>{headline}</Heading>
-                <Subtitle dark={dark}>{description}</Subtitle>
-              </TextWrapper>
-              <BtnWrap>
-                <Button to="home" smooth={true} duration={500} spy={true} exact="true" primary={primary? 1: 0} dark = {dark ? 1: 0}  >{buttonLabel}</Button>
-              </BtnWrap>
-            </Column1>
-            <Column2>
-              <ImgWrap>
-                <Img src= {imgsrc} alt="car"/>
-              </ImgWrap>
-            </Column2>
-          </ProjectRow>
-        </ProjectWrapper>
-      </ProjectContainer>
-    </>
-  )
+  return (
+		<>
+			<ProjectContainer dark={dark} id={id}>
+				<ProjectWrapper>
+					<ProjectRow imgStart={imgStart}>
+						<Column1>
+							<TextWrapper>
+								<TopLine>{topline}</TopLine>
+								<Heading dark={dark}>{headline}</Heading>
+								<Subtitle dark={dark}>{description}</Subtitle>
+							</TextWrapper>
+							<BtnWrap>
+								<Button
+									to="home"
+									smooth={true}
+									duration={500}
+									spy={true}
+									exact="true"
+									primary={primary ? 1 : 0}
+									dark={dark ? 1 : 0}
+								>
+									<Link to="/projects/meditation">{buttonLabel}</Link>
+								</Button>
+							</BtnWrap>
+						</Column1>
+						<Column2>
+							<ImgWrap>
+								<Img src={imgsrc} alt="car" />
+							</ImgWrap>
+						</Column2>
+					</ProjectRow>
+				</ProjectWrapper>
+			</ProjectContainer>
+		</>
+	);
 }
