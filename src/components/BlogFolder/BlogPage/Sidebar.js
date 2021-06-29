@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
-import { Facebook, Github, Instagram, Twitter } from '../../../components/icons/SocialMedia'
+import { Facebook, Github, Instagram, Twitter } from '../../icons/SocialMedia'
 import config from '../../../website-config'
 
 const SideBarContainer = styled.div`

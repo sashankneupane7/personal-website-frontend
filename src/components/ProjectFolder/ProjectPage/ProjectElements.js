@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Button} from '../../../components/ButtonElement'
+import {Button} from '../../ButtonElement'
 import {Link} from 'react-router-dom'
 
 export const ProjectContainer = styled.div`
