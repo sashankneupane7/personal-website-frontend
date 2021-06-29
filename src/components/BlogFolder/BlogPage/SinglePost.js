@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useLocation } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Context } from "../../../context/Context";
 import config from "../../../website-config"
 
@@ -115,6 +115,7 @@ const Description = styled.p`
 `;
 
 const SinglePost = () => {
+	const history = useHistory()
 	const location = useLocation();
 	const path = location.pathname.split("/")[2];
 	const [post, setPost] = useState({});
@@ -139,7 +140,7 @@ const SinglePost = () => {
 		try {
 			await axios.put(`${config.serverURL}/api/posts/${post._id}`, {username: user.username, title, desc }
 			);
-            window.location.reload();
+      window.location.reload();
 		} catch (err) {}
         setUpdateMode(false);
 	};
@@ -150,8 +151,7 @@ const SinglePost = () => {
 			await axios.delete(`${config.serverURL}/api/posts/` + path, {
 				data: { username: user.username },
 			})
-			console.log("deleted")
-			window.location.reload();
+			history.push("/blog")
 
 		} catch (err) {}
 	};

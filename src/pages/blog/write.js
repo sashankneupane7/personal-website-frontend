@@ -4,6 +4,7 @@ import "./css/write.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
 import config from "../../website-config";
+import {useHistory} from "react-router-dom"
 
 const WriteContainer = styled.div`
 	padding-top: 50px;
@@ -54,6 +55,7 @@ const WriteSubmit = styled.button`
 `;
 
 export default function Write() {
+	let history = useHistory()
 	const [title, setTitle] = useState("");
 	const [desc, setDesc] = useState("");
 	const [file, setFile] = useState(null);
@@ -78,7 +80,7 @@ export default function Write() {
 		}
 		try {
 			const res = await axios.post(`${config.serverURL}/api/posts`, newPost);
-			window.location.replace(`/post/` + res.data._id);
+			history.push(`/post/${res.data._id}`);
 		} catch (err) {}
 	};
 

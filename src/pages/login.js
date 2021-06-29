@@ -1,6 +1,6 @@
 import React, { useRef, useContext } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Context } from "../context/Context";
 import axios from "axios";
 import config from "../website-config"
@@ -61,6 +61,7 @@ const LoginForm = styled.form`
 `;
 
 const Login = () => {
+    let history = useHistory()
     const userRef = useRef();
     const passwordRef = useRef();
     const {dispatch, isFetching } = useContext(Context);
@@ -74,6 +75,7 @@ const Login = () => {
                 password: passwordRef.current.value,
             });
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+            history.push("/");
         } catch (err) {
             dispatch({ type: "LOGIN_FAILURE" });
         }
