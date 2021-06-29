@@ -7,42 +7,38 @@ import config from "../../website-config";
 import {useHistory} from "react-router-dom"
 
 const WriteContainer = styled.div`
-	padding-top: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 `;
 
-const WriteForm = styled.form`
-	position: relative;
-`;
 
 const WriteImage = styled.img`
-	margin: 0 auto;
+	margin: 20px auto;
 	width: 80vw;
-	height: 250px;
+	height: 300px;
 	border-radius: 10px;
 	object-fit: cover;
+	object-position: center;
 `;
 
-const WriteFormGroup = styled.div`
+const WriteForm = styled.form`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	max-width: 80vw;
+	width: 80vw;
+	max-width: 1100px;
 	margin: 0 auto;
-
-	.title {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		margin: 0 auto;
-	}
 
 	textarea {
 		resize: none;
 	}
+`;
+
+const WriteTitle = styled.div`
+	display: flex;
+	justify-content: left;
+	width: 100%;
 `;
 
 const WriteSubmit = styled.button`
@@ -88,33 +84,35 @@ export default function Write() {
 		<WriteContainer>
 			{file && <WriteImage src={URL.createObjectURL(file)} />}
 			<WriteForm>
-				<WriteFormGroup>
-						<label className="writeIcon" htmlFor="fileInput">
-							<i className="fas fa-plus"></i>
-						</label>
-						<input
-							type="file"
-							id="fileInput"
-							style={{ display: "none" }}
-							onChange={(e) => setFile(e.target.files[0])}
-						/>
-						<input
-							className="writeInput"
-							type="text"
-							placeholder="Title"
-							autoFocus={true}
-							onChange={(e) => {
-								setTitle(e.target.value);
-							}}
-						/>
-					<textarea
-						className = "writeText writeInput"
-						placeholder = "Tell your story..."
-						type = "text"
-						onChange = {(e) => setDesc(e.target.value)}
-					></textarea>
-					<WriteSubmit type = "submit" onClick={handleSubmit}>Publish</WriteSubmit>
-				</WriteFormGroup>
+				<WriteTitle>
+					<label className="writeIcon" htmlFor="fileInput">
+						<i className="fas fa-plus"></i>
+					</label>
+					<input
+						type="file"
+						id="fileInput"
+						style={{ display: "none" }}
+						onChange={(e) => setFile(e.target.files[0])}
+					/>
+					<input
+						className="writeTitle"
+						type="text"
+						placeholder="Title"
+						autoFocus={true}
+						onChange={(e) => {
+							setTitle(e.target.value);
+						}}
+					/>
+				</WriteTitle>
+				<textarea
+					className="writeText"
+					placeholder="Tell your story..."
+					type="text"
+					onChange={(e) => setDesc(e.target.value)}
+				></textarea>
+				<WriteSubmit type="submit" onClick={handleSubmit}>
+					Publish
+				</WriteSubmit>
 			</WriteForm>
 		</WriteContainer>
 	);
