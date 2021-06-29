@@ -106,7 +106,7 @@ export const Img = styled.img`
   padding-right: 0;
 `
 
-export const ProjectElement = ({id, dark, imgStart, topline, headline, description, buttonLabel, imgsrc, primary}) => {
+export const ProjectElement = ({id, dark, imgStart, topline, headline, description, buttonLabel, imgsrc, primary, route}) => {
   return (
 		<>
 			<ProjectContainer dark={dark} id={id}>
@@ -120,7 +120,7 @@ export const ProjectElement = ({id, dark, imgStart, topline, headline, descripti
 							</TextWrapper>
 							<BtnWrap>
 								<Button
-									to="/projects/meditation"
+									to={route}
 									smooth={true}
 									duration={500}
 									spy={true}
