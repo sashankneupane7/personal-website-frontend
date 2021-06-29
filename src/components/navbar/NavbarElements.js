@@ -53,19 +53,25 @@ export const NavLogo = styled(LinkR)`
 `
 
 export const MobileIcon = styled.div`
-  display: none;
+	display: none;
 
-  @media screen and (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: white;
-  }
-`
+	@media screen and (max-width: 768px) {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		transform: translate(-100%, 60%);
+		font-size: 1.7rem;
+		cursor: pointer;
+		color: white;
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			font-size: 1.8rem;
+			transition: all 0.2s ease-in-out;
+		}
+	}
+`;
 
 export const NavMenu = styled.ul`
   display: flex;

@@ -31,7 +31,7 @@ const Navbar = (props) => {
 				<Nav>
 					<Maintenance />
 					<NavbarContainer>
-						<NavLogo to="/">Sashank Neupane</NavLogo>
+						<NavLogo to="/">sashankneupane</NavLogo>
 						<MobileIcon onClick={props.toggle}>
 							<FaBars />
 						</MobileIcon>
