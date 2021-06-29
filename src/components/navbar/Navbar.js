@@ -78,7 +78,7 @@ const Navbar = (props) => {
 									<NavBtnLink to="/login">Login</NavBtnLink>
 								</NavBtn>
 								<NavBtn>
-									<NavBtnLink to="/Register">Register</NavBtnLink>
+									<NavBtnLink to="/register">Register</NavBtnLink>
 								</NavBtn>
 							</>
 						)}

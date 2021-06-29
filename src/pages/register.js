@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import config from "../website-config"
 const RegisterContainer = styled.div`
     min-height: calc(100vh - 80px - 90px);
@@ -104,6 +104,7 @@ const Asterick = () => {
     )}
 
 const Register = () => {
+    let history = useHistory()
     const [name, setName] = useState("");
     const [firstname, setFirstName] = useState("")
     const [middlename, setMiddleName] = useState("");
@@ -119,7 +120,7 @@ const Register = () => {
         setName(newName);
         setError(false);
         try {
-            const res = await axios.post(`${config.serverURL}/api/auth/register`, {
+            await axios.post(`${config.serverURL}/api/auth/register`, {
                 name,
                 firstname,
                 middlename,
@@ -128,7 +129,7 @@ const Register = () => {
                 email,
                 password,
             });
-            res.data && window.location.replace("/login");
+            history.push("/login");
         } catch (err) {
             setError(true);
         }

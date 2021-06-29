@@ -149,7 +149,10 @@ const SinglePost = () => {
 		try {
 			await axios.delete(`${config.serverURL}/api/posts/` + path, {
 				data: { username: user.username },
-			});
+			})
+			console.log("deleted")
+			window.location.reload();
+
 		} catch (err) {}
 	};
 

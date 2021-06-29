@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import {Button} from '../../ButtonElement'
-import {Link} from 'react-router-dom'
 
 export const ProjectContainer = styled.div`
   color: white;
@@ -121,7 +120,7 @@ export const ProjectElement = ({id, dark, imgStart, topline, headline, descripti
 							</TextWrapper>
 							<BtnWrap>
 								<Button
-									to="home"
+									to="/projects/meditation"
 									smooth={true}
 									duration={500}
 									spy={true}
@@ -129,7 +128,7 @@ export const ProjectElement = ({id, dark, imgStart, topline, headline, descripti
 									primary={primary ? 1 : 0}
 									dark={dark ? 1 : 0}
 								>
-									<Link to="/projects/meditation">{buttonLabel}</Link>
+									{buttonLabel}
 								</Button>
 							</BtnWrap>
 						</Column1>
