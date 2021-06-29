@@ -17,7 +17,7 @@ export const Inner = styled.div`
 const Maintenance = () => (
   <Outer>
     <Inner>
-      This site is still under construction and full of bugs.
+      Site under construction!
     </Inner>
   </Outer>
 )
