@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Pen from '../components/icons/Pen'
 import { Facebook, Github, Instagram, Twitter } from '../components/icons/SocialMedia'
+import config from '../website-config'
+import {Link} from 'react-router-dom'
 
 const HomeOuter = styled.div`
   margin: 0;
@@ -107,7 +109,7 @@ const SocialLinks = styled.ul`
     margin-top: 5px;
   }
 `
-const Social = styled.li`
+const Social = styled(Link)`
   margin: 0;
   fill: white;
   height: 30px;
@@ -124,25 +126,52 @@ const Social = styled.li`
 
 const About = () => {
   return (
-    <HomeOuter>
-        <HomeInner>
-          <HomeLeft>
-            <Pen />
-          </HomeLeft>
-          <HomeRight>
-            <Welcome>Welcome!</Welcome>
-            <Introduction>I am Sashank from Nepal.</Introduction>
-            <Description>And, this is my personal portfolio where I pen down my thoughts, experiences, and findings.</Description>
-            <SocialLinks>
-              <Social><Github /></Social>
-              <Social><Facebook /></Social>
-              <Social><Instagram /></Social>
-              <Social><Twitter /></Social>
-            </SocialLinks>
-          </HomeRight>
-        </HomeInner>
-      </HomeOuter>
-  )
+		<HomeOuter>
+			<HomeInner>
+				<HomeLeft>
+					<Pen />
+				</HomeLeft>
+				<HomeRight>
+					<Welcome>Welcome!</Welcome>
+					<Introduction>I am Sashank from Nepal.</Introduction>
+					<Description>
+						And, this is my personal portfolio where I pen down my thoughts,
+						experiences, and findings.
+					</Description>
+					<SocialLinks>
+						<Social
+							to={{ pathname: config.github }}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Github />
+						</Social>
+						<Social
+							to={{ pathname: config.facebook }}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Facebook />
+						</Social>
+						<Social
+							to={{ pathname: config.instagram }}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Instagram />
+						</Social>
+						<Social
+							to={{ pathname: config.twitter }}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Twitter />
+						</Social>
+					</SocialLinks>
+				</HomeRight>
+			</HomeInner>
+		</HomeOuter>
+	);
 }
 
 export default About

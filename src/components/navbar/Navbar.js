@@ -57,23 +57,8 @@ const Navbar = (props) => {
 								</>
 							)}
 						</NavMenu>
-						{/* {!props.user && (
-                      <>
-                          <NavMenu>
-                              <NavItem>
-                                  <NavLinks to="/login">Login</NavLinks>
-                              </NavItem>
-                              <NavItem>
-                                  <NavLinks to="/register">Register</NavLinks>
-                              </NavItem>
-                          </NavMenu>
-                      </>
-                  )} */}
 						{!user && (
 							<>
-								{/* <NavBtn>
-									<NavBtnLink to="/subscribe">Subscribe</NavBtnLink>
-								</NavBtn> */}
 								<NavBtn>
 									<NavBtnLink to="/login">Login</NavBtnLink>
 								</NavBtn>
