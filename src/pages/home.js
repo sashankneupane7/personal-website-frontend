@@ -11,7 +11,6 @@ export default function Home () {
       <About />
       <ProjectElement {...ProjectData[0]} />
       <ProjectElement {...ProjectData[1]} />
-      <ProjectElement {...ProjectData[2]} />
     </>
   )
 }

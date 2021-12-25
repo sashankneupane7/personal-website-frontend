@@ -16,7 +16,7 @@ export const Containers = styled.div`
 	display: flex;
 	justify-content: space-around;
 	width: 100vw;
-	height: calc(100vh - 80px - 90px);
+	height: calc(100vh - 80px - 70px);
 
 	* {
 		color: white;

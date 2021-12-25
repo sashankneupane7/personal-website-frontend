@@ -29,7 +29,7 @@ const Navbar = (props) => {
     return (
 			<>
 				<Nav>
-					<Maintenance />
+					{/* <Maintenance /> */}
 					<NavbarContainer>
 						<NavLogo to="/">sashankneupane</NavLogo>
 						<MobileIcon onClick={props.toggle}>
@@ -57,6 +57,7 @@ const Navbar = (props) => {
 								</>
 							)}
 						</NavMenu>
+						<NavMenu>
 						{!user && (
 							<>
 								<NavBtn>
@@ -83,6 +84,8 @@ const Navbar = (props) => {
 						) : (
 							<> </>
 						)}
+						</NavMenu>
+
 					</NavbarContainer>
 				</Nav>
 			</>

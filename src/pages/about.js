@@ -1,8 +1,6 @@
 import styled from 'styled-components'
+import Contact from './contact'
 import Pen from '../components/icons/Pen'
-import { Facebook, Github, Instagram, Twitter } from '../components/icons/SocialMedia'
-import config from '../website-config'
-import {Link} from 'react-router-dom'
 
 const HomeOuter = styled.div`
   margin: 0;
@@ -57,72 +55,6 @@ const HomeRight = styled.div`
   }
 `
 
-const Welcome = styled.div`
-  margin: 50px;
-  font-size: 3rem;
-  font-family: 'Dancing Script', cursive;
-
-  @media screen and (max-width: 500px){
-    font-size: 2rem;
-    margin-bottom: 5px;
-    margin-top: -30px;
-    padding: 0;
-  }
-`
-
-const Introduction = styled.div`
-  font-size: 2rem;
-  margin-top: 70px;
-  margin-bottom: 20px;
-  font-family: 'Dancing Script', cursive;
-
-  @media screen and (max-width: 500px) {
-    margin-top: 10px;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    padding: 0;
-  }
-`
-
-const Description = styled.div`
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  font-family: 'Dancing Script', cursive;
-
-  @media screen and (max-width: 500px) {
-    margin: 5px 0;
-    padding: 0;
-    font-size: 1.5rem;
-  }
-`
-
-const SocialLinks = styled.ul`
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  height: 30px;
-  width: 100%;
-  list-style: none;
-
-  @media screen and (max-width: 500px) {
-    margin-top: 5px;
-  }
-`
-const Social = styled(Link)`
-  margin: 0;
-  fill: white;
-  height: 30px;
-  width: 15%;
-  padding: 10px;
-
-  @media screen and (max-width: 500px) {
-    padding-left: 3px;
-    padding-right: 3px;
-    height: 30px;
-    width: 30px;
-  }
-`
 
 const About = () => {
   return (
@@ -132,42 +64,7 @@ const About = () => {
 					<Pen />
 				</HomeLeft>
 				<HomeRight>
-					<Welcome>Welcome!</Welcome>
-					<Introduction>I am Sashank from Nepal.</Introduction>
-					<Description>
-						And, this is my personal portfolio where I pen down my thoughts,
-						experiences, and findings.
-					</Description>
-					<SocialLinks>
-						<Social
-							to={{ pathname: config.github }}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<Github />
-						</Social>
-						<Social
-							to={{ pathname: config.facebook }}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<Facebook />
-						</Social>
-						<Social
-							to={{ pathname: config.instagram }}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<Instagram />
-						</Social>
-						<Social
-							to={{ pathname: config.twitter }}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<Twitter />
-						</Social>
-					</SocialLinks>
+          <Contact />
 				</HomeRight>
 			</HomeInner>
 		</HomeOuter>

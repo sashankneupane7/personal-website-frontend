@@ -4,8 +4,8 @@ import { Link as LinkR, NavLink} from 'react-router-dom';
 
 export const Nav = styled.nav`
   max-width: 100vw;
-  background: black;
-  height: 80px;
+  background: rgb(15,15,15);
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,6 @@ export const Nav = styled.nav`
   top: 0;
   z-index: 10;
   
-
   @media screen and (max-width: 960) {
     transition:0.8s all ease;
 
@@ -33,7 +32,7 @@ export const NavbarContainer = styled.div`
   z-index: 1;
   width: 100%;
   padding: 0 20px;
-  max-width: 1100px;
+  max-width: 90%;
 
   @media screen and (max-width: 500px){
     max-height: 50px;
@@ -42,7 +41,7 @@ export const NavbarContainer = styled.div`
 `
 
 export const NavLogo = styled(LinkR)`
-  color: white;
+  color: grey;
   justify-self: flex-start;
   cursor: pointer;
   font-size: 1.5rem;
@@ -50,6 +49,10 @@ export const NavLogo = styled(LinkR)`
   align-items: center;
   font-weight: bold;
   text-decoration: none;
+
+  &:hover {
+    color: white;
+  }
 `
 
 export const MobileIcon = styled.div`
@@ -106,8 +109,6 @@ export const NavLinks = styled(NavLink)`
 
   &:hover {
     color: white;
-    padding-bottom: 6px;
-    font-size: 1.2em;
     transition: all 0.35s ease-in-out;
   }
 `
@@ -115,7 +116,7 @@ export const NavLinks = styled(NavLink)`
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
-  padding-left: 5px;
+  padding-left: 20px;
 
   @media screen and (max-width: 768px){
     display: none;
@@ -138,7 +139,6 @@ export const NavBtnLink = styled(LinkR)`
     transition: all 0.2s ease-in-out;
     background: white;
     color: black;
-    padding: 9.6px 19.6px;
     border: none;
   }
 `
